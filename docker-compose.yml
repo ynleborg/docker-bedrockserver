@@ -10,8 +10,8 @@ services:
       - 19132:19132/udp
     stdin_open: true
     tty: true
-    volumes:
-      - ./data/worlds:PARAM_WORLDS
-      - ./data/server.properties:PARAM_CONFIG/server.properties
-      - ./data/permissions.json:PARAM_CONFIG/permissions.json
-      - ./data/whitelist.json:PARAM_CONFIG/whitelist.json
+  volumes:
+    - PARAM_HOME/worlds:/home/bedrock/bedrock_server/worlds
+    - PARAM_HOME/server.properties:/home/bedrock/bedrock_server/server.properties
+    - PARAM_HOME/permissions.json:/home/bedrock/bedrock_server/permissions.json
+    - PARAM_HOME/whitelist.json:/home/bedrock/bedrock_server/whitelist.json
