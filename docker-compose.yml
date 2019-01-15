@@ -5,15 +5,13 @@ services:
     image: bedrock_server:latest
     container_name: bedrock_server
     environment:
-# Update this as the file changes.  Please be sure to agree to the EULA
-      - BEDROCK_DOWNLOAD_ZIP=https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip
+      - BEDROCK_DOWNLOAD_ZIP=PARAM_BEDROCK_URL
     ports: 
       - 19132:19132/udp
-#      - 19133:19133/udp
     stdin_open: true
     tty: true
     volumes:
-      - ./data/worlds:/home/bedrock/bedrock_server/worlds
-      - ./data/server.properties:/home/bedrock/bedrock_server/server.properties
-      - ./data/ops.json:/home/bedrock/bedrock_server/ops.json
-      - ./data/whitelist.json:/home/bedrock/bedrock_server/whitelist.json
+      - ./data/worlds:PARAM_WORDLS
+      - ./data/server.properties:PARAM_CONFIG/server.properties
+      - ./data/permissions.json:PARAM_CONFIG/permissions.json
+      - ./data/whitelist.json:PARAM_CONFIG/whitelist.json
