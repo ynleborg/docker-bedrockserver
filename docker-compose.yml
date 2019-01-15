@@ -7,7 +7,7 @@ services:
     environment:
       - BEDROCK_DOWNLOAD_ZIP=PARAM_BEDROCK_URL
     ports: 
-      - 19132:19132/udp
+      - PARAM_PORT:19132/udp
     stdin_open: true
     tty: true
     volumes:
