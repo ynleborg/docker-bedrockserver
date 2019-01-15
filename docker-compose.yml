@@ -2,8 +2,8 @@ version: '3'
 
 services:
   bedrock_server:
-    image: bedrock_server:latest
-    container_name: bedrock_server
+    image: PARAM_SERVER_NAME:latest
+    container_name: PARAM_SERVER_NAME
     environment:
       - BEDROCK_DOWNLOAD_ZIP=PARAM_BEDROCK_URL
     ports: 
