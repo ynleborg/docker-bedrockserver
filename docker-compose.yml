@@ -13,7 +13,7 @@ services:
     volumes:
       # temporarily we are mapping the worlds folder to an import folder because when
       # mounting this volume in Windows at least the bedrock server crashes.
-      - PARAM_HOME/worlds:/home/bedrock/bedrock_server/import/worlds
+      - PARAM_HOME/worlds:/home/bedrock/bedrock_server/worlds
       - PARAM_HOME/config:/home/bedrock/bedrock_server/config
 
     # override the default entrypoint to include access to a bash terminal for debugging.

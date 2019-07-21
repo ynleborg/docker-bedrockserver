@@ -36,17 +36,9 @@ copy_config ops.json
 copy_config whitelist.json
 copy_config permissions.json
 
-# since (for Windows at least) we cannot currently mount the worlds
-# directory directly, we need to copy the world data over at startup.
-# copy recursively without overwriting existing files.
-cp -r -n import/worlds/* worlds/
-
 if [ -f "bedrock_server" ]; then
    echo "Executing server"
    LD_LIBRARY_PATH=. ./bedrock_server
 else
    echo "Server software not downloaded or unpacked!"
 fi
-
-# let's copy the resulting world data back out
-cp -r -u worlds/* import/worlds/
