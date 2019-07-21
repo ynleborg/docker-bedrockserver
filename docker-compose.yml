@@ -3,15 +3,18 @@ version: '3'
 services:
   bedrock_server:
     image: PARAM_SERVER_NAME:latest
+    build: .
     container_name: PARAM_SERVER_NAME
-    environment:
-      - BEDROCK_DOWNLOAD_ZIP=PARAM_BEDROCK_URL
     ports: 
-      - PARAM_PORT:19132/udp
+      - PARAM_PORT4:19132/udp
+      - PARAM_PORT6:19133/udp
     stdin_open: true
     tty: true
     volumes:
-      - PARAM_HOME/worlds:/home/bedrock/bedrock_server/worlds
-      - PARAM_HOME/server.properties:/home/bedrock/bedrock_server/server.properties
-      - PARAM_HOME/permissions.json:/home/bedrock/bedrock_server/permissions.json
-      - PARAM_HOME/whitelist.json:/home/bedrock/bedrock_server/whitelist.json
+      # temporarily we are mapping the worlds folder to an import folder because when
+      # mounting this volume in Windows at least the bedrock server crashes.
+      - PARAM_HOME/worlds:/home/bedrock/bedrock_server/import/worlds
+      - PARAM_HOME/config:/home/bedrock/bedrock_server/config
+
+    # override the default entrypoint to include access to a bash terminal for debugging.
+    entrypoint: bash -c "/home/bedrock/startup.sh && /bin/bash"
