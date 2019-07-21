@@ -11,7 +11,7 @@ CMD ["/sbin/my_init"]
 # ...put your own build instructions here...
 RUN apt-get update
 # RUN apt-get -y upgrade -o Dpkg::Options::="--force-confold"
-RUN apt-get -y install unzip curl nano
+RUN apt-get -y install unzip libcurl3 curl nano
 
 RUN useradd -ms /bin/bash bedrock
 RUN su - bedrock -c "mkdir -p bedrock_server/data/worlds"
