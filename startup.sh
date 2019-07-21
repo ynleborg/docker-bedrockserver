@@ -40,6 +40,7 @@ if [ -f "bedrock_server" ]; then
    echo "Executing server"
    lsb_release -a
    openssl version
+   netstat -plnt
    LD_LIBRARY_PATH=. ./bedrock_server
 else
    echo "Server software not downloaded or unpacked!"
