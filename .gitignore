@@ -3,4 +3,5 @@ data/worlds/*
 backup*.zip
 backup.sh
 server.properties
+.idea
 

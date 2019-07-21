@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Update this as the file changes.  Please be sure to agree to the EULA
-BEDROCK_DOWNLOAD_ZIP=https://minecraft.azureedge.net/bin-linux/bedrock-server-1.9.0.15.zip
+BEDROCK_DOWNLOAD_ZIP=`curl -v --silent https://www.minecraft.net/en-us/download/server/bedrock/  2>&1 | grep bin-linux/bedrock-server | cut -d '"' -f 2`
+echo "BEDROCK_DOWNLOAD_ZIP=$BEDROCK_DOWNLOAD_ZIP"
 ZIPFILE=$(basename $BEDROCK_DOWNLOAD_ZIP)
 
 cd /home/bedrock/bedrock_server
